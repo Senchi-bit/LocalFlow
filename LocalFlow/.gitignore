@@ -1,0 +1,5 @@
+LocalFlow/bin
+LocalFlow/obj
+
+*.user
+.idea

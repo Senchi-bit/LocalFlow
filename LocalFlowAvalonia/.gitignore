@@ -1,0 +1,5 @@
+﻿LocalFlowAvalonia/bin
+LocalFlowAvalonia/obj
+
+*.user
+.idea
