@@ -1,0 +1,108 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:LocalFlowAvalonia.ViewModels"
+             xmlns:discovery="using:LocalFlowAvalonia.Discovery"
+             x:Class="LocalFlowAvalonia.Views.SendView"
+             x:DataType="vm:SendViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Button Content="Назад"
+                    Command="{Binding BackCommand}"
+                    Classes="secondary"
+                    HorizontalAlignment="Left"
+                    MinWidth="82"
+                    MinHeight="32"
+                    Padding="12,6"
+                    Margin="0,0,0,16" />
+            <TextBlock Text="LocalFlow"
+                       FontSize="23"
+                       FontWeight="SemiBold"
+                       Foreground="#111827" />
+            <TextBlock Text="Отправка файла на устройство в локальной сети"
+                       Classes="secondary"
+                       Margin="0,5,0,0" />
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <DockPanel Margin="0,0,0,7">
+                <TextBlock Text="Сервер в сети"
+                           Classes="fieldLabel"
+                           VerticalAlignment="Center" />
+                <Button DockPanel.Dock="Right"
+                        Content="Обновить"
+                        Command="{Binding RefreshServersCommand}"
+                        Classes="secondary"
+                        MinWidth="92"
+                        MinHeight="32"
+                        Padding="12,6"
+                        Margin="8,0,0,0"
+                        HorizontalAlignment="Right" />
+            </DockPanel>
+            <ComboBox ItemsSource="{Binding Servers}"
+                      SelectedItem="{Binding SelectedServer}"
+                      IsEnabled="{Binding IsIdle}"
+                      Margin="0,0,0,16"
+                      HorizontalContentAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="discovery:DiscoveredServer">
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Text="Или адрес вручную"
+                       Classes="fieldLabel" />
+            <TextBox Text="{Binding ManualAddress}"
+                     IsEnabled="{Binding IsIdle}"
+                     Margin="0,0,0,18"
+                     PlaceholderText="127.0.0.1:45123" />
+            <TextBlock Text="Файл"
+                       Classes="fieldLabel" />
+            <DockPanel Margin="0,0,0,7">
+                <Button DockPanel.Dock="Right"
+                        Content="Обзор"
+                        Command="{Binding BrowseFileCommand}"
+                        Classes="secondary"
+                        MinWidth="82"
+                        MinHeight="34"
+                        Padding="12,6"
+                        Margin="8,0,0,0" />
+                <TextBox Text="{Binding FilePath}"
+                         IsReadOnly="True"
+                         IsEnabled="{Binding IsIdle}" />
+            </DockPanel>
+            <TextBlock Text="Можно перетащить файл в это окно."
+                       Classes="secondary"
+                       FontSize="12" />
+        </StackPanel>
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal">
+            <Button Content="Отправить"
+                    Command="{Binding SendCommand}"
+                    Classes="primary" />
+            <Button Content="Отмена"
+                    Command="{Binding CancelCommand}"
+                    Classes="danger"
+                    Margin="0" />
+        </StackPanel>
+        <StackPanel Grid.Row="5"
+                    VerticalAlignment="Bottom">
+            <ProgressBar Height="4"
+                         Minimum="0"
+                         Maximum="100"
+                         Value="{Binding Progress}"
+                         Foreground="#374151"
+                         Background="#E5E7EB" />
+            <TextBlock Text="{Binding Status}"
+                       TextWrapping="Wrap"
+                       Foreground="#374151"
+                       Margin="0,10,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

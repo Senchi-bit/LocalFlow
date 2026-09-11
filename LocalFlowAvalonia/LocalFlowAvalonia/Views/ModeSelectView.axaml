@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:LocalFlowAvalonia.ViewModels"
+             x:Class="LocalFlowAvalonia.Views.ModeSelectView"
+             x:DataType="vm:ModeSelectViewModel">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    MaxWidth="420">
+            <TextBlock Text="LocalFlow"
+                       FontSize="23"
+                       FontWeight="SemiBold"
+                       Foreground="#111827" />
+            <TextBlock Text="Передача файлов в локальной сети"
+                       Classes="secondary"
+                       Margin="0,5,0,28" />
+            <Button Content="Отправить"
+                    Command="{Binding SendCommand}"
+                    Classes="primary"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,8"
+                    MinHeight="44" />
+            <TextBlock Text="Выбрать файл и отправить его на устройство, которое принимает файлы."
+                       Classes="secondary"
+                       FontSize="12"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,22" />
+            <Button Content="Получить"
+                    Command="{Binding ReceiveCommand}"
+                    Classes="secondary"
+                    HorizontalAlignment="Stretch"
+                    Margin="0"
+                    MinHeight="44" />
+            <TextBlock Text="Стать видимым в сети и сохранять входящие файлы в папку Documents\LocalFlow."
+                       Classes="secondary"
+                       FontSize="12"
+                       TextWrapping="Wrap"
+                       Margin="0,8,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

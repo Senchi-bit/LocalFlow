@@ -1,0 +1,161 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="LocalFlowAvalonia.App"
+             xmlns:local="using:LocalFlowAvalonia"
+             RequestedThemeVariant="Light">
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+
+        <Style Selector="TextBlock.secondary">
+            <Setter Property="Foreground" Value="#6B7280" />
+        </Style>
+        <Style Selector="TextBlock.fieldLabel">
+            <Setter Property="Foreground" Value="#374151" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,0,0,6" />
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Padding" Value="9,7" />
+            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="Background" Value="#FFFFFF" />
+            <Setter Property="Foreground" Value="#111827" />
+            <Setter Property="BorderBrush" Value="#C7CDD4" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="TextBox:focus">
+            <Setter Property="BorderBrush" Value="#6B7280" />
+        </Style>
+        <Style Selector="TextBox:disabled">
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="Padding" Value="8,5" />
+            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="Background" Value="#FFFFFF" />
+            <Setter Property="Foreground" Value="#111827" />
+            <Setter Property="BorderBrush" Value="#C7CDD4" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style Selector="Button.primary">
+            <Setter Property="Padding" Value="16,9" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="MinWidth" Value="110" />
+            <Setter Property="MinHeight" Value="36" />
+            <Setter Property="Background" Value="#1F2937" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#1F2937" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="bd"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.primary:pointerover">
+            <Setter Property="Background" Value="#374151" />
+        </Style>
+        <Style Selector="Button.primary:pressed">
+            <Setter Property="Background" Value="#111827" />
+        </Style>
+        <Style Selector="Button.primary:disabled">
+            <Setter Property="Opacity" Value="0.45" />
+        </Style>
+
+        <Style Selector="Button.secondary">
+            <Setter Property="Padding" Value="16,9" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="MinWidth" Value="110" />
+            <Setter Property="MinHeight" Value="36" />
+            <Setter Property="Background" Value="#FFFFFF" />
+            <Setter Property="Foreground" Value="#374151" />
+            <Setter Property="BorderBrush" Value="#D1D5DB" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="bd"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.secondary:pointerover">
+            <Setter Property="Background" Value="#F3F4F6" />
+            <Setter Property="BorderBrush" Value="#9CA3AF" />
+        </Style>
+        <Style Selector="Button.secondary:pressed">
+            <Setter Property="Background" Value="#E5E7EB" />
+        </Style>
+        <Style Selector="Button.secondary:disabled">
+            <Setter Property="Opacity" Value="0.45" />
+        </Style>
+
+        <Style Selector="Button.danger">
+            <Setter Property="Padding" Value="16,9" />
+            <Setter Property="MinWidth" Value="110" />
+            <Setter Property="MinHeight" Value="36" />
+            <Setter Property="Background" Value="#FFFFFF" />
+            <Setter Property="Foreground" Value="#B42318" />
+            <Setter Property="BorderBrush" Value="#D1D5DB" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="bd"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.danger:pointerover">
+            <Setter Property="Background" Value="#FEF2F2" />
+            <Setter Property="BorderBrush" Value="#FCA5A5" />
+        </Style>
+        <Style Selector="Button.danger:pressed">
+            <Setter Property="Background" Value="#FEE2E2" />
+        </Style>
+        <Style Selector="Button.danger:disabled">
+            <Setter Property="Opacity" Value="0.45" />
+        </Style>
+    </Application.Styles>
+</Application>
