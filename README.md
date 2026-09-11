@@ -4,20 +4,14 @@
 
 Обнаружение идёт по mDNS (`_localflow._tcp`), данные — по TCP на порту `45123`. Входящие файлы сохраняются в `Documents/LocalFlow`. Размер одного файла — до 10 ГиБ, целостность проверяется SHA-256.
 
-## Зачем два клиента в одном репозитории
 
-Это **один продукт**, а не два независимых приложения.
-
-| Папка | UI | Платформа |
-| --- | --- | --- |
-| `LocalFlow/` | WPF | Windows |
+| Папка                | UI       | Платформа                                      |
+| -------------------- | -------- | ---------------------------------------------- |
+| `LocalFlow/`         | WPF      | Windows                                        |
 | `LocalFlowAvalonia/` | Avalonia | Windows, Linux и другие desktop-платформы .NET |
 
+
 Оба клиента умеют и отправлять, и принимать. Протокол, порты и логика передачи одинаковые: WPF-клиент на Windows может обмениваться файлами с Avalonia-клиентом на Linux.
-
-Держать их в одном репозитории удобно: проще синхронизировать протокол, выпускать совместимые версии и сравнивать правки. Следующий шаг — вынести общую сеть и протокол в отдельную библиотеку, чтобы не копировать код между папками.
-
-Отдельные репозитории имели бы смысл, если бы клиенты жили разным циклом релизов, разными командами или совсем разной логикой. Здесь этого нет.
 
 ## Структура
 
@@ -36,11 +30,15 @@ LocalFlowApps/
 - **Отправить** — выбрать файл и получателя из списка устройств в сети
 - **Получить** — объявить себя по mDNS и принимать входящие файлы
 
+
+
 ## Требования
 
 - .NET 10 SDK
 - Для WPF: Windows
 - Для Avalonia: Windows или Linux (и другие desktop-таргеты .NET)
+
+
 
 ## Запуск
 
@@ -56,12 +54,7 @@ dotnet run --project LocalFlow/LocalFlow/LocalFlow.csproj
 dotnet run --project LocalFlowAvalonia/LocalFlowAvalonia/LocalFlowAvalonia.csproj
 ```
 
-Самопроверка loopback (без окна):
 
-```bash
-dotnet run --project LocalFlow/LocalFlow/LocalFlow.csproj -- --self-test
-dotnet run --project LocalFlowAvalonia/LocalFlowAvalonia/LocalFlowAvalonia.csproj -- --self-test
-```
 
 ## Сборка Avalonia под Linux
 
@@ -76,6 +69,8 @@ dotnet publish LocalFlowAvalonia/LocalFlowAvalonia/LocalFlowAvalonia.csproj `
     -p:DebugSymbols=false `
     -o ./publish/linux-x64
 ```
+
+
 
 ## Протокол
 
