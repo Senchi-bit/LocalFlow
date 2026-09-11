@@ -1,0 +1,17 @@
+﻿<Window x:Class="LocalFlow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}"
+        Height="560"
+        Width="560"
+        MinHeight="440"
+        MinWidth="480"
+        Background="#F8F9FA"
+        FontFamily="Segoe UI"
+        FontSize="14"
+        AllowDrop="True"
+        DragOver="OnDragOver"
+        Drop="OnDrop">
+    <ContentControl Content="{Binding CurrentView}"
+                    Margin="28" />
+</Window>
